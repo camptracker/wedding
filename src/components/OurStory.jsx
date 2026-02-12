@@ -21,7 +21,7 @@ const seasonCycle = keyframes`
 `;
 
 const Section = styled.section`
-  padding: 10rem 2rem;
+  padding: 6rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -84,12 +84,13 @@ const PoemContainer = styled(motion.div)`
 
 const PoemLine = styled(motion.p)`
   font-family: ${({ theme }) => theme.fonts.body};
-  color: ${({ theme }) => theme.colors.warmGray};
+  color: ${({ theme }) => theme.colors.charcoal};
   line-height: 2.4;
   font-size: 1.2rem;
   font-style: italic;
   margin: 0;
   letter-spacing: 0.3px;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.5);
 `;
 
 const Highlight = styled.span`
