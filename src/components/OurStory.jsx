@@ -20,7 +20,7 @@ const Ornament = styled(motion.div)`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 
   &::before, &::after {
     content: '';
@@ -33,6 +33,43 @@ const Ornament = styled(motion.div)`
     color: ${({ theme }) => theme.colors.gold};
     font-size: 1.2rem;
   }
+`;
+
+const PhotoContainer = styled(motion.div)`
+  max-width: 500px;
+  margin: 0 auto 3rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+`;
+
+const StoryContainer = styled(motion.div)`
+  max-width: 680px;
+  margin: 0 auto 4rem;
+  text-align: left;
+`;
+
+const StoryText = styled(motion.p)`
+  font-family: ${({ theme }) => theme.fonts.body};
+  color: ${({ theme }) => theme.colors.warmGray};
+  line-height: 2;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const Highlight = styled.span`
+  color: ${({ theme }) => theme.colors.burgundy};
+  font-weight: 500;
 `;
 
 const Timeline = styled(motion.div)`
@@ -85,24 +122,24 @@ const MomentText = styled.p`
 
 const moments = [
   {
-    year: 'The Beginning',
-    title: 'Two paths converged',
-    text: 'Sometimes the universe conspires to bring two souls together. What started as a chance encounter became the first chapter of an extraordinary story.',
+    year: 'The Contrast',
+    title: 'Opposites in motion',
+    text: "He moves carefully, thinking things through. She moves by feeling. Where he seeks balance, she chases intensity. The contrast could've pulled them apart — but instead, it drew them closer.",
   },
   {
-    year: 'The Journey',
-    title: 'Adventures & laughter',
-    text: 'From late-night conversations to spontaneous road trips, every moment together felt like coming home. We built a world of inside jokes, shared dreams, and unwavering support.',
+    year: 'The Growth',
+    title: 'Learning to make room',
+    text: "He wanted clarity; she wanted freedom. He wanted progress; she wanted presence. It wasn't easy. But it was honest. He learned to soften without losing himself. She learned to trust without running.",
   },
   {
-    year: 'The Question',
-    title: 'A promise made',
-    text: 'With a heart full of certainty and a ring full of meaning, the question was asked — and the answer was everything. Forever never sounded so perfect.',
+    year: 'The Balance',
+    title: 'Color meets steadiness',
+    text: "He carried stability — meals, plans, patience — quietly and willingly. She brought color back into places he didn't know had gone gray. They didn't fix each other. They made room for each other.",
   },
   {
     year: 'October 2026',
     title: 'The celebration',
-    text: 'And now we invite you to witness the beginning of our forever. Join us as we say "I do" surrounded by the people who matter most.',
+    text: 'Two imperfect people choosing curiosity over defense, listening over winning, and love as a daily practice — sometimes clumsy, always real. Join us as we make it forever.',
   },
 ];
 
@@ -127,6 +164,27 @@ export default function OurStory() {
       >
         <span>♥</span>
       </Ornament>
+
+      <PhotoContainer
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <img src="/couple.jpg" alt="Jonathan & Zany" />
+      </PhotoContainer>
+
+      <StoryContainer
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <StoryText>
+          You weren't looking for fireworks. You wanted steadiness — someone who could sit in silence without trying to fix it. Then <Highlight>Zany</Highlight> arrived like a gust of wind. Bright, messy, impossible to ignore.
+        </StoryText>
+      </StoryContainer>
+
       <Timeline
         ref={ref}
         variants={staggerContainer}
